@@ -1,0 +1,221 @@
+body {
+  background-color: #f8f9fa
+}
+
+.card {
+  border: none;
+  border-radius: 10px
+}
+
+.c-details span {
+  font-weight: 300;
+  font-size: 13px
+}
+.center-space {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.icon {
+  width: 50px;
+  height: 50px;
+  background-color: #eee;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 39px
+}
+
+.badge span {
+  background-color: #fffbec;
+  width: 60px;
+  height: 25px;
+  padding-bottom: 3px;
+  border-radius: 5px;
+  display: flex;
+  color: #fed85d;
+  justify-content: center;
+  align-items: center
+}
+
+.progress {
+  height: 10px;
+  border-radius: 10px
+}
+
+.progress div {
+  background-color: red
+}
+
+.text1 {
+  font-size: 14px;
+  font-weight: 600
+}
+
+.text2 {
+  color: #a5aec0
+}
+h1.title {
+  padding:25px;
+  font-size:30px;
+  font-weight: 100;;
+}
+
+.margin-top-20 {
+  margin-top:20px;
+}
+
+
+.btn-mod.btn-medium {
+    height: auto;
+    padding: 2px 30px;
+    font-size: 13px;
+}
+
+
+
+/* Button Mod to the original Bootstrap Buttons */
+
+.btn-mod.btn-circle {
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+
+.btn-mod.btn-border {
+    color: #000000;
+    border: 2px solid #000000;
+    background: transparent;
+}
+
+.btn-mod, a.btn-mod {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 4px 13px;
+    color: #fff;
+    background: rgba(34,34,34, .9);
+    border: 2px solid transparent;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -moz-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -o-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -ms-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+}
+
+.btn-mod.btn-border:hover, .btn-mod.btn-border:focus{
+    color: #fff;
+    border-color: transparent;
+    background: #000;
+}
+
+.btn-mod:hover, .btn-mod:focus, a.btn-mod:hover, a.btn-mod:focus {
+    font-weight: 400;
+    color: rgba(255,255,255, .85);
+    background: rgba(0,0,0, .7);
+    text-decoration: none;
+    outline: none;
+    border-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* Reveal icon on hover */
+
+a.btn.btn-mod.btn-border.animation-one span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.3s;
+}
+
+a.btn.btn-mod.btn-border.animation-one span:after {
+  font-family: FontAwesome;
+  content: "\f105";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.3s;
+}
+
+a.btn.btn-mod.btn-border.animation-one:hover span {
+  padding-right: 25px;
+}
+
+a.btn.btn-mod.btn-border.animation-one:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/* Footer styling */
+
+.footer i.fa.fa-heart{
+  color:red;
+}
+
+p.footer-text {
+    font-weight: 100;
+}
+
+/* Your existing CSS styles */
+
+/* Add this CSS for the hover effect */
+.custom-hover-effect {
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-hover-effect:hover {
+  background-color: #dfd2f4; /* Change to your desired background color on hover */
+  color: #000; /* Change to your desired text color on hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow when hovered */
+}
+#badge-custom-bg {
+  background-color: #dfd2f4;
+  width: 100px;
+  height: 25px;
+  padding: 0px 10px;
+  border-radius: 5px;
+  display: inline;
+  color: #212529;
+  font-weight: bold;
+}
+
+/* Typing Animation */
+
+
+.typing-demo {
+  width: 31ch;
+  animation: typing 2.5s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 1em;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
