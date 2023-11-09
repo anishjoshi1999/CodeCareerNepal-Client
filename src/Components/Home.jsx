@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../App.css";
 import Loader from "./Loader";
@@ -89,12 +90,7 @@ function Home() {
                       </h3>
                     </div>
                     <div className="mt-4">
-                      <a
-                        href={`/${element.companyName}`}
-                        className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect"
-                      >
-                        More
-                      </a>
+                      <Link to={`/${element.companyName}`} className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">More</Link>
                     </div>
                   </div>
                 </div>
