@@ -40,7 +40,9 @@ function Home() {
                 <div className="lead text-muted mb-0">
                   <div className="typing-demo">Explore latest IT job openings.</div>
                 </div>
-                
+                <Link to="/jobs" className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect mt-3">
+                <i class='bx bx-code-alt' ></i> Explore Jobs
+              </Link>
               </div>
               <div className="col-lg-6 d-none d-lg-block">
                 <img
@@ -52,52 +54,6 @@ function Home() {
             </div>
           </div>
         </div>
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <p>{error}</p>
-        ) : (
-          <div className="container py-5">
-            <div className="row">
-              {allListings.map((element) => (
-                <div
-                  key={element.companyName}
-                  className="col-lg-4 col-md-6 mb-4"
-                >
-                  <div className="card p-3">
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex flex-row align-items-center">
-                        <div className="icon">
-                          <i className="bx bx-code-alt bx-rotate-180"></i>
-                        </div>
-                        <div className="ms-2 c-details">
-                          <h6 className="mb-0">
-                            {element.companyName.toUpperCase()}
-                          </h6>
-                          <span>1 day ago</span>
-                        </div>
-                      </div>
-                      <div className="badge">
-                        <span>Location</span>
-                      </div>
-                    </div>
-                    <div className="mt-4">
-                      <h3 className="display-6">
-                        Current Opening:{" "}
-                        <span className="fw-bold">
-                          {element.totalJobs.length}
-                        </span>
-                      </h3>
-                    </div>
-                    <div className="mt-4">
-                      <Link to={`/${element.companyName}`} className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">More</Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
