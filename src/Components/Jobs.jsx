@@ -1,43 +1,21 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
-
-function Pagination({ onPageChange, hasNextPage }) {
-  return (
-    <div style={{ textAlign: 'center', marginTop: '20px' }}>
-      <button className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect" onClick={onPageChange} disabled={!hasNextPage}>
-        Load More
-      </button>
-    </div>
-  );
-}
 
 function Jobs() {
   const [allListings, setAllListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [pageNumber, setPageNumber] = useState(1);
-  const [hasNextPage, setHasNextPage] = useState(true);
-  const loaderRef = useRef(null);
-  const pageSize = 6; // Set your desired page size
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://codecareernepal.cyclic.app/api?page=${pageNumber}&pageSize=${pageSize}`
+          `https://codecareernepal.cyclic.app/api`
         );
-
-        if (pageNumber === 1) {
-          // Set allListings only after the first successful API call
-          setAllListings(response.data);
-        } else {
-          // Concatenate the new data for subsequent pages
-          setAllListings((prevListings) => [...prevListings, ...response.data]);
-        }
-
-        setHasNextPage(response.data.length === pageSize);
+        setAllListings(response.data);
         setLoading(false);
       } catch (error) {
         setError(error.message || "Error fetching job listings");
@@ -46,32 +24,11 @@ function Jobs() {
     }
 
     fetchData();
-  }, [pageNumber, pageSize]);
+  }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasNextPage) {
-          setPageNumber((prevPageNumber) => prevPageNumber + 1);
-        }
-      },
-      { threshold: 1 }
-    );
-
-    if (loaderRef.current) {
-      observer.observe(loaderRef.current);
-    }
-
-    return () => {
-      if (loaderRef.current) {
-        observer.unobserve(loaderRef.current);
-      }
-    };
-  }, [loaderRef, hasNextPage]);
-
-  const handlePageChange = () => {
-    setPageNumber((prevPageNumber) => prevPageNumber + 1);
-  };
+  const filteredListings = allListings.filter((listing) =>
+    listing.companyName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <>
@@ -87,9 +44,24 @@ function Jobs() {
               <p className="lead text-muted mb-0 fw-bold">
                 All Over Nepal
               </p>
+              <div style={{ margin: "20px 0" }}>
+                <input
+                  type="text"
+                  placeholder="Search by Company Name"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  }}
+                />
+              </div>
             </div>
             <div className="row">
-              {allListings.map((element, index) => (
+              {filteredListings.map((element, index) => (
                 <div key={index} className="col-lg-4 col-md-6 mb-4">
                   <div className="card p-3">
                     <div className="d-flex justify-content-between">
@@ -128,7 +100,6 @@ function Jobs() {
                 </div>
               ))}
             </div>
-            <Pagination onPageChange={handlePageChange} hasNextPage={hasNextPage} />
           </div>
         )}
       </div>
