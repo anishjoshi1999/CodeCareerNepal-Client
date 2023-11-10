@@ -199,7 +199,7 @@ p.footer-text {
 
 
 .typing-demo {
-  width: 31ch;
+  width: 35ch;
   animation: typing 2.5s steps(22), blink .5s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;

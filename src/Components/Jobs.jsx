@@ -26,7 +26,7 @@ function Jobs() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api?page=${pageNumber}&pageSize=${pageSize}`
+          `https://codecareernepal.cyclic.app/api?page=${pageNumber}&pageSize=${pageSize}`
         );
 
         if (pageNumber === 1) {
