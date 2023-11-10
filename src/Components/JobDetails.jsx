@@ -61,7 +61,7 @@ function JobDetails() {
                     <p className="font-italic text-muted mb-4">
                       No. of Vacancy/s: <span id="badge-custom-bg">2</span>
                     </p>
-                    <a href={element.jobUrl} className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">
+                    <a href={element.jobUrl} target="_blank" className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">
                       Apply
                     </a>
                   </div>

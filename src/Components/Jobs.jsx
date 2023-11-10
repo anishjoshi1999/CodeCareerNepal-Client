@@ -37,10 +37,10 @@ function Jobs() {
           setAllListings((prevListings) => [...prevListings, ...response.data]);
         }
 
-        setHasNextPage(response.data.length === pageSize); // Check if there is more data
+        setHasNextPage(response.data.length === pageSize);
         setLoading(false);
       } catch (error) {
-        setError("Error fetching job listings");
+        setError(error.message || "Error fetching job listings");
         setLoading(false);
       }
     }
@@ -79,15 +79,15 @@ function Jobs() {
         {loading ? (
           <Loader />
         ) : error ? (
-          <p>{error}</p>
+          <p>Error: {error}</p>
         ) : (
           <div className="container py-5">
-            <div className="col-lg-6 mx-auto text-center mb-3"> {/* Center the content */}
-                <h1 className="display-4 fw-bold">Latest IT Job Openings</h1>
-                <p className="lead text-muted mb-0 fw-bold">
-                  All Over Nepal
-                </p>
-              </div>
+            <div className="col-lg-6 mx-auto text-center mb-3">
+              <h1 className="display-4 fw-bold">Latest IT Job Openings</h1>
+              <p className="lead text-muted mb-0 fw-bold">
+                All Over Nepal
+              </p>
+            </div>
             <div className="row">
               {allListings.map((element, index) => (
                 <div key={index} className="col-lg-4 col-md-6 mb-4">
@@ -95,7 +95,7 @@ function Jobs() {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex flex-row align-items-center">
                         <div className="icon">
-                          <i className="bx bx-code-alt bx-rotate-180"></i>
+                          <i className="bx bx-code-alt bx-rotate-180" alt="Code Icon"></i>
                         </div>
                         <div className="ms-2 c-details">
                           <h6 className="mb-0">
