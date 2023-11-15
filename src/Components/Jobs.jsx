@@ -76,9 +76,6 @@ function Jobs() {
                           <span>1 day ago</span>
                         </div>
                       </div>
-                      <div className="badge">
-                        <span>Location</span>
-                      </div>
                     </div>
                     <div className="mt-4">
                       <h3 className="display-6">

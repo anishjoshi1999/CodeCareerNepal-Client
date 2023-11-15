@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams , Link} from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 
@@ -61,9 +61,15 @@ function JobDetails() {
                     <p className="font-italic text-muted mb-4">
                       No. of Vacancy/s: <span id="badge-custom-bg">2</span>
                     </p>
-                    <a href={element.jobUrl} target="_blank" className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">
+                    <Link
+                        to={`/jobs/${id}/${element.jobName}`}
+                        className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect"
+                      >
+                        See Job Information
+                      </Link>
+                    {/* <a href={element.jobUrl} target="_blank" className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">
                       Apply
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               ))}
