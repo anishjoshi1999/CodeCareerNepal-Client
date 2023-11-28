@@ -7,7 +7,6 @@ import About from "./Components/About.jsx";
 import Contact from "./Components/Contact.jsx";
 import Navbar from "./Components/Partials/Navbar.jsx";
 import Footer from "./Components/Partials/Footer.jsx";
-import JobInside from "./Components/JobInside.jsx";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/jobs" element={<Jobs />} />
           <Route path="/jobs/:id" element={<JobDetails />} />
-          <Route path="/jobs/:id/:job" element={<JobInside />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

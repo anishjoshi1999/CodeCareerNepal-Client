@@ -58,18 +58,12 @@ function JobDetails() {
                 <div key={index} className="col-lg-4 col-md-6 col-sm-12">
                   <div className="card p-3 mb-2">
                     <h3 className="font-weight-light">{element.jobName}</h3>
-                    <p className="font-italic text-muted mb-4">
+                    {/* <p className="font-italic text-muted mb-4">
                       No. of Vacancy/s: <span id="badge-custom-bg">2</span>
-                    </p>
-                    <Link
-                        to={`/jobs/${id}/${element.jobName}`}
-                        className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect"
-                      >
-                        See Job Information
-                      </Link>
-                    {/* <a href={element.jobUrl} target="_blank" className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">
+                    </p> */}
+                    <a href={element.jobUrl} target="_blank" className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">
                       Apply
-                    </a> */}
+                    </a>
                   </div>
                 </div>
               ))}
