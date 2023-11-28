@@ -54,19 +54,39 @@ function JobDetails() {
               </div>
             </div>
             <div className="row">
-              {allListing.totalJobs.map((element, index) => (
-                <div key={index} className="col-lg-4 col-md-6 col-sm-12">
-                  <div className="card p-3 mb-2">
-                    <h3 className="font-weight-light">{element.jobName}</h3>
-                    {/* <p className="font-italic text-muted mb-4">
-                      No. of Vacancy/s: <span id="badge-custom-bg">2</span>
-                    </p> */}
+            {allListing.totalJobs.map((element, index) => (
+                <div key={index} className="col-lg-4 col-md-6 mb-4">
+                  <div className="card p-3">
+                    <div className="d-flex justify-content-between">
+                      <div className="d-flex flex-row align-items-center">
+                        <div className="icon">
+                          <i className="bx bx-code-alt bx-rotate-180" alt="Code Icon"></i>
+                        </div>
+                        <div className="ms-2 c-details">
+                          <h6 className="mb-0">
+                            {id}
+                          </h6>
+                          <span>1 day ago</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-4">
+                      <h3 className="display-6">
+                      {element.jobName}
+                      </h3>
+                    </div>
+                    <div className="mt-4">
                     <a href={element.jobUrl} target="_blank" className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect">
                       Apply
                     </a>
+                    </div>
                   </div>
                 </div>
               ))}
+
+
+
+
             </div>
           </div>
         </div>
