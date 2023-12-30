@@ -16,7 +16,7 @@ function JobDetails() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://bored-tan-sneakers.cyclic.app/api/${id}`
+          `https://codecareer.onrender.com/api/${id}`
         );
         setAllListing(response.data[0]);
         setLoading(false);
@@ -83,10 +83,6 @@ function JobDetails() {
                   </div>
                 </div>
               ))}
-
-
-
-
             </div>
           </div>
         </div>

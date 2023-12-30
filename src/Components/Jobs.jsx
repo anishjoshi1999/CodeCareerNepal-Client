@@ -13,7 +13,7 @@ function Jobs() {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://bored-tan-sneakers.cyclic.app/api`
+          `https://codecareer.onrender.com/api`
         );
         setAllListings(response.data);
         setLoading(false);
