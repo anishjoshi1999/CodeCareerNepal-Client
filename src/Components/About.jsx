@@ -87,7 +87,7 @@ function About() {
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
                 <h5 className="mb-0">Anish Joshi</h5>
-                <span className="small text-titlecase text-muted">Developer</span>
+                <span className="small text-titlecase text-muted">Founder / Developer</span>
                 <ul className="social mb-0 list-inline mt-3">
                   <li className="list-inline-item">
                     <a href="#" className="social-link">
