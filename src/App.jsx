@@ -7,7 +7,7 @@ import About from "./Components/About.jsx";
 import Contact from "./Components/Contact.jsx";
 import Navbar from "./Components/Partials/Navbar.jsx";
 import Footer from "./Components/Partials/Footer.jsx";
-
+import { JobContext } from "./store/useJobs.jsx";
 function App() {
   return (
     <>
@@ -15,8 +15,10 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/jobs" element={<Jobs />} />
-          <Route path="/jobs/:id" element={<JobDetails />} />
+          <Route exact path="/jobs" element={<JobContext />}>
+            <Route index element={<Jobs />} />
+            <Route path=":id" element={<JobDetails />} />
+          </Route>
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>

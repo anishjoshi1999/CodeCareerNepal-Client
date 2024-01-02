@@ -1,33 +1,14 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import Loader from "./Loader";
 import { Link } from "react-router-dom";
+import { useJobs } from "../store/useJobs";
+import { useSearch } from "../store/useSearch";
 
 function Jobs() {
-  const [allListings, setAllListings] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [searchTerm, setSearchTerm] = useState('');
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await axios.get(
-          `https://codecareer.onrender.com/api`
-        );
-        setAllListings(response.data);
-        setLoading(false);
-      } catch (error) {
-        setError(error.message || "Error fetching job listings");
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, []);
-
-  const filteredListings = allListings.filter((listing) =>
-    listing.companyName.toLowerCase().includes(searchTerm.toLowerCase())
+  const {allListings, loading, error} = useJobs();
+  const { filteredList:filteredListings, inputRef } = useSearch(
+    allListings ? allListings : [],
+    "companyName"
   );
 
   return (
@@ -48,8 +29,7 @@ function Jobs() {
                 <input
                   type="text"
                   placeholder="Search by Company Name"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  ref={inputRef}
                   style={{
                     width: "100%",
                     padding: "10px",
@@ -63,7 +43,7 @@ function Jobs() {
             <div className="row">
               {filteredListings.map((element, index) => (
                 <div key={index} className="col-lg-4 col-md-6 mb-4">
-                  <div className="card p-3">
+                  <div className="card h-100 p-3">
                     <div className="d-flex justify-content-between">
                       <div className="d-flex flex-row align-items-center">
                         <div className="icon">
@@ -85,7 +65,7 @@ function Jobs() {
                         </span>
                       </h3>
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-auto pt-4">
                       <Link
                         to={`/jobs/${element.companyName}`}
                         className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect"
