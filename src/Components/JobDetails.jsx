@@ -11,41 +11,33 @@ function JobDetails() {
     allListing ? allListing : [],
     "jobName"
   );
+
   return (
-    <div>
+    <>
       {loading ? (
         <Loader />
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <div className="bg-light py-5">
+        <div>
           <div className="container py-5">
-            <div className="row align-items-center mb-5">
-              <div className="col-lg-6 order-2 order-lg-1">
-                <h1 className="display-4">{companyName?.toUpperCase()}</h1>
-                <p className="lead text-muted mb-0">Latest Job Openings.</p>
-              </div>
-              <div className="col-lg-5 px-5 mx-auto order-1 order-lg-2">
-                <img
-                  src="https://bootstrapious.com/i/snippets/sn-about/illus.png"
-                  alt=""
-                  className="img-fluid mb-4 mb-lg-0"
+            <div className="col-lg-6 mx-auto text-center mb-3">
+              <h1 className="display-4">{companyName?.toUpperCase()}</h1>
+              <p className="lead text-muted mb-0">Latest Job Openings.</p>
+              <div style={{ margin: "20px 0" }}>
+                <input
+                  type="text"
+                  placeholder="Search by Job Title"
+                  ref={inputRef}
+                  style={{
+                    width: "100%",
+                    padding: "10px",
+                    borderRadius: "5px",
+                    border: "1px solid #ccc",
+                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  }}
                 />
               </div>
-            </div>
-            <div style={{ margin: "20px 0" }}>
-              <input
-                type="text"
-                placeholder="Search by Job Title"
-                ref={inputRef}
-                style={{
-                  width: "100%",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  border: "1px solid #ccc",
-                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-                }}
-              />
             </div>
             <div className="row">
               {filteredList.map((element, index) => (
@@ -84,7 +76,7 @@ function JobDetails() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
