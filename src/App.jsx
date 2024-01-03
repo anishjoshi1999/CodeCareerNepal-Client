@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./Components/Home";
 import JobDetails from "./Components/JobDetails.jsx";
 import Jobs from "./Components/Jobs.jsx";
+import Companies from "./Components/Companies.jsx";
 import About from "./Components/About.jsx";
 import Contact from "./Components/Contact.jsx";
 import Navbar from "./Components/Partials/Navbar.jsx";
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/jobs" element={<JobContext />}>
             <Route index element={<Jobs />} />
+            <Route path="company" element={<Companies />} />
             <Route path=":id" element={<JobDetails />} />
           </Route>
           <Route path="/about" element={<About />} />

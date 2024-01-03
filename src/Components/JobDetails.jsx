@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 import { useJobForCompany } from "../store/useJobs";
 import { useSearch } from "../store/useSearch";
+import JobCard from "./cards/JobCard";
 
 function JobDetails() {
   const { id } = useParams();
@@ -41,36 +42,7 @@ function JobDetails() {
             </div>
             <div className="row">
               {filteredList.map((element, index) => (
-                <div key={index} className="col-lg-4 col-md-6 mb-4">
-                  <div className="card h-100 p-3">
-                    <div className="d-flex justify-content-between">
-                      <div className="d-flex flex-row align-items-center">
-                        <div className="icon">
-                          <i
-                            className="bx bx-code-alt bx-rotate-180"
-                            alt="Code Icon"
-                          ></i>
-                        </div>
-                        <div className="ms-2 c-details">
-                          <h6 className="mb-0">{id}</h6>
-                          <span>1 day ago</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="mt-4">
-                      <h3 className="display-6">{element.jobName}</h3>
-                    </div>
-                    <div className="mt-auto pt-4">
-                      <a
-                        href={element.jobUrl}
-                        target="_blank"
-                        className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect"
-                      >
-                        Apply
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <JobCard key={index} companyName={companyName} jobName={element.jobName} jobUrl={element.jobUrl} />
               ))}
             </div>
           </div>
