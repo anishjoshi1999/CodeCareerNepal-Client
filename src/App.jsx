@@ -14,10 +14,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route exact path="/jobs" element={<JobContext />}>
-            <Route index element={<Jobs />} />
-            <Route path=":id" element={<JobDetails />} />
+          <Route exact path="/" element={<JobContext />}>
+            <Route exact path="/" element={<Home />} />
+            <Route path="jobs" element={<Jobs />} />
+            <Route path="jobs/:id" element={<JobDetails />} />
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
