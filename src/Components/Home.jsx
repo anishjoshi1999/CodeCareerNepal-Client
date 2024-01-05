@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Loader from "./Loader";
-import { useJobs } from "../store/useJobs";
+import { useCompany } from "../store/useJobs";
 
 function Home() {
-  const { allListings, loading, error } = useJobs();
+  const { allListings, loading, error } = useCompany();
   const totalJobs = allListings
     ? allListings.reduce((total, listing) => total + listing.totalJobs.length, 0)
     : 0;
@@ -32,6 +32,12 @@ function Home() {
                   className="btn btn-light px-4 px-sm-5 rounded-pill shadow-sm custom-hover-effect"
                 >
                   <i className="bx bx-search-alt-2"></i> Explore IT Openings
+                </Link>
+                <Link
+                  to="/company"
+                  className="btn btn-light px-4 my-4 px-sm-5 rounded-pill shadow-sm custom-hover-effect"
+                >
+                  <i className="bx bx-search-alt-2"></i> Explore IT Companies
                 </Link>
               </div>
               <div className="col-md-12 col-lg-6 text-center text-lg-right">

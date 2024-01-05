@@ -1,6 +1,8 @@
+import { formatDistanceToNow } from "date-fns";
+
 /**
  *
- * @param {{companyName:string,jobName:string,jobUrl:string}} props
+ * @param {{companyName:string,jobName:string,jobUrl:string,updatedAt:string}} props
  * @returns
  */
 export default function JobCard(props) {
@@ -14,7 +16,12 @@ export default function JobCard(props) {
             </div>
             <div className="ms-2 c-details">
               <h6 className="mb-0">{props.companyName}</h6>
-              <span>1 day ago</span>
+              <span>
+                {`Last updated ${formatDistanceToNow(
+                  new Date(props.updatedAt),
+                  { addSuffix: true }
+                )}`}
+              </span>
             </div>
           </div>
         </div>

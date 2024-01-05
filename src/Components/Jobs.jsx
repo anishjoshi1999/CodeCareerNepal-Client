@@ -1,15 +1,16 @@
 import { useCompany } from "../store/useJobs";
 import { useSearch } from "../store/useSearch";
-import { formatDistanceToNow } from "date-fns";import JobCard from "./cards/JobCard";
+import JobCard from "./cards/JobCard";
 
 export default function Jobs() {
-  const {  allListings, loading, error  } = useCompany();
+  const { allListings, loading, error } = useCompany();
   const allJobs = allListings
     .map((listing) =>
       listing.totalJobs.map((i) => ({ company: listing.companyName, ...i }))
     )
-    .flat();
-  const {  filteredList, inputRef } = useSearch(
+    .flat()
+    .sort((a, b) => new Date(a.updatedAt) < new Date(b.updatedAt));
+  const { filteredList, inputRef } = useSearch(
     allJobs ? allJobs : [],
     "jobName",
     "company"
@@ -47,6 +48,7 @@ export default function Jobs() {
                 companyName={element.company}
                 jobName={element.jobName}
                 jobUrl={element.jobUrl}
+                updatedAt={element.updatedAt}
               />
             ))}
           </div>

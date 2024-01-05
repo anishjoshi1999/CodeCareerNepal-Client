@@ -32,7 +32,7 @@ export const JobContext = () => {
 };
 
 export const useCompany = () => {
-  /** @type {{allListings:{totalJobs:{jobName:string, jobUrl:string}[], companyName:string, [x:string]:any}[], loading:boolean, error:string}} */
+  /** @type {{allListings:{totalJobs:{jobName:string, jobUrl:string, updatedAt: string}[], companyName:string, [x:string]:any}[], loading:boolean, error:string}} */
   const data = useContext(JobContextData);
   if (!data)
     throw new Error(
@@ -43,9 +43,8 @@ export const useCompany = () => {
 
 export const useJobForCompany = function (company) {
   const { allListings, ...states } = useCompany();
-  const allListing = allListings.filter(
-    (item) => item.companyName === company
-  )[0].totalJobs;
-
-  return { companyName: company, allListing, ...states};
+  const allListing = allListings
+    .filter((item) => item.companyName === company)[0]
+    .totalJobs.sort((a, b) => new Date(a.updatedAt) < new Date(b.updatedAt));
+  return { companyName: company, allListing, ...states };
 };
