@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Loader from "./Loader";
 import { useJobForCompany } from "../store/useJobs";
 import { useSearch } from "../store/useSearch";
+import { formatDistanceToNow } from "date-fns";
 
 function JobDetails() {
   const { id } = useParams();
@@ -53,7 +54,12 @@ function JobDetails() {
                         </div>
                         <div className="ms-2 c-details">
                           <h6 className="mb-0">{id}</h6>
-                          <span>1 day ago</span>
+                          <span>
+                            {`Last updated ${formatDistanceToNow(
+                              new Date(element.updatedAt),
+                              { addSuffix: true }
+                            )}`}
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -64,6 +70,7 @@ function JobDetails() {
                       <a
                         href={element.jobUrl}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="btn btn-light px-5 rounded-pill shadow-sm custom-hover-effect"
                       >
                         Apply

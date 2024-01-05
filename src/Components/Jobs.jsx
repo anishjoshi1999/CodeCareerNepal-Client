@@ -3,10 +3,10 @@ import Loader from "./Loader";
 import { Link } from "react-router-dom";
 import { useJobs } from "../store/useJobs";
 import { useSearch } from "../store/useSearch";
-
+import { formatDistanceToNow } from "date-fns";
 function Jobs() {
-  const {allListings, loading, error} = useJobs();
-  const { filteredList:filteredListings, inputRef } = useSearch(
+  const { allListings, loading, error } = useJobs();
+  const { filteredList: filteredListings, inputRef } = useSearch(
     allListings ? allListings : [],
     "companyName"
   );
@@ -22,9 +22,7 @@ function Jobs() {
           <div className="container py-5">
             <div className="col-lg-6 mx-auto text-center mb-3">
               <h1 className="display-4 fw-bold">Latest IT Job Openings</h1>
-              <p className="lead text-muted mb-0 fw-bold">
-                All Over Nepal
-              </p>
+              <p className="lead text-muted mb-0 fw-bold">All Over Nepal</p>
               <div style={{ margin: "20px 0" }}>
                 <input
                   type="text"
@@ -47,13 +45,21 @@ function Jobs() {
                     <div className="d-flex justify-content-between">
                       <div className="d-flex flex-row align-items-center">
                         <div className="icon">
-                          <i className="bx bx-code-alt bx-rotate-180" alt="Code Icon"></i>
+                          <i
+                            className="bx bx-code-alt bx-rotate-180"
+                            alt="Code Icon"
+                          ></i>
                         </div>
                         <div className="ms-2 c-details">
                           <h6 className="mb-0">
                             {element.companyName.toUpperCase()}
                           </h6>
-                          <span>1 day ago</span>
+                          <span>
+                            {`Last updated ${formatDistanceToNow(
+                              new Date(element.updatedAt),
+                              { addSuffix: true }
+                            )}`}
+                          </span>
                         </div>
                       </div>
                     </div>
