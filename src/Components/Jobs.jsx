@@ -1,15 +1,15 @@
 import { useCompany } from "../store/useJobs";
 import { useSearch } from "../store/useSearch";
-import JobCard from "./cards/JobCard";
+import { formatDistanceToNow } from "date-fns";import JobCard from "./cards/JobCard";
 
 export default function Jobs() {
-  const { allListings, loading, error } = useCompany();
+  const {  allListings, loading, error  } = useCompany();
   const allJobs = allListings
     .map((listing) =>
       listing.totalJobs.map((i) => ({ company: listing.companyName, ...i }))
     )
     .flat();
-  const { filteredList, inputRef } = useSearch(
+  const {  filteredList, inputRef } = useSearch(
     allJobs ? allJobs : [],
     "jobName",
     "company"

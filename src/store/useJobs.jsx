@@ -46,5 +46,6 @@ export const useJobForCompany = function (company) {
   const allListing = allListings.filter(
     (item) => item.companyName === company
   )[0].totalJobs;
-  return { companyName: company, allListing, ...states };
+
+  return { companyName: company, allListing, ...states};
 };
