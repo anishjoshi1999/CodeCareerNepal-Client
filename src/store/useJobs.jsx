@@ -12,22 +12,31 @@ export const JobContext = () => {
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   useEffect(() => {
+    let isMounted = true;
     async function fetchData() {
       try {
         const response = await axios.get(
           `https://codecareer.onrender.com/api`,
           { params: { page: page } }
         );
-        setAllListings((prevListings) => [...prevListings, ...response.data]);
-        setHasMore(response.data.length > 0);
-        setLoading(false);
+        if (isMounted) {
+          setAllListings((prevListings) => [...prevListings, ...response.data]);
+          setHasMore(response.data.length > 0);
+          setLoading(false);
+        }
       } catch (error) {
-        setError(error.message || "Error fetching job listings");
-        setLoading(false);
+        if (isMounted) {
+          setError(error.message || "Error fetching job listings");
+          setLoading(false);
+        }
       }
     }
 
     fetchData();
+    // useeffect cleanup function to fix duplicate issue
+    return () => {
+      isMounted = false;
+    };
   }, [page]);
 
   const loadMore = () => {
