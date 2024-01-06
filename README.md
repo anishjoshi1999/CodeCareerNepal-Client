@@ -28,11 +28,7 @@ npm install
 
 3.  Start the development server:
 
-    bashCopy code
-
-    `npm start`
-
-4.  Open your browser and visit [http://localhost:3000](http://localhost:3000/).
+    `npm run dev`
 
 ## Project Structure
 
