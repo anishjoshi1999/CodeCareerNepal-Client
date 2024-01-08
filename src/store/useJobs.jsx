@@ -6,6 +6,7 @@ import Loader from "../Components/Loader";
 
 const JobContextData = createContext();
 export const JobContext = () => {
+  /** @type {[any[],Function]} */
   const [allListings, setAllListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -57,7 +58,8 @@ export const JobContext = () => {
   );
 };
 
-export const useJobs = () => {
+export const useCompany = () => {
+  /** @type {{allListings:{totalJobs:{jobName:string, jobUrl:string, updatedAt: string}[], companyName:string, [x:string]:any}[], loading:boolean, error:string}} */
   const data = useContext(JobContextData);
   if (!data)
     throw new Error(
@@ -67,10 +69,9 @@ export const useJobs = () => {
 };
 
 export const useJobForCompany = function (company) {
-  const { allListings, ...states } = useJobs();
-  const allListing = allListings.filter(
-    (item) => item.companyName === company
-  )[0].totalJobs;
-
+  const { allListings, ...states } = useCompany();
+  const allListing = allListings
+    .filter((item) => item.companyName === company)[0]
+    .totalJobs.sort((a, b) => new Date(a.updatedAt) < new Date(b.updatedAt));
   return { companyName: company, allListing, ...states };
 };
