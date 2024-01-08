@@ -31,13 +31,13 @@ function Home() {
                   to="/jobs"
                   className="btn btn-light px-4 px-sm-5 rounded-pill shadow-sm custom-hover-effect"
                 >
-                  <i className="bx bx-search-alt-2"></i> Explore IT Openings
+                  <i className="bx bx-search-alt-2"></i> Explore All IT Jobs Openings
                 </Link>
                 <Link
                   to="/company"
-                  className="btn btn-light px-4 my-4 px-sm-5 rounded-pill shadow-sm custom-hover-effect"
+                  className="btn btn-light px-4 my-2 px-sm-5 rounded-pill shadow-sm custom-hover-effect"
                 >
-                  <i className="bx bx-search-alt-2"></i> Explore IT Companies
+                  <i className="bx bx-search-alt-2"></i> Explore IT Jobs By Companies
                 </Link>
               </div>
               <div className="col-md-12 col-lg-6 text-center text-lg-right">
