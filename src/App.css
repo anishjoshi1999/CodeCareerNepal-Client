@@ -221,3 +221,20 @@ p.footer-text {
     border-color: transparent
   }
 }
+.row-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.row-buttons a {
+  display: flex;
+  align-items: center;
+  margin: 0 10px; 
+  text-decoration: none;
+  color: #212529;
+ 
+}
+
+.row-buttons a i {
+  margin-right: 5px; 
+}
