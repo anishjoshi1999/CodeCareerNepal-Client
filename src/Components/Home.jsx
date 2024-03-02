@@ -13,7 +13,7 @@ function Home() {
   useEffect(() => {
     const fetchTotalJobs = async () => {
       try {
-        const response = await fetch("https://codecareer.onrender.com/api/total");
+        const response = await fetch("https://codecareernepal-server.onrender.com/api/total");
         const data = await response.json();
         setTotalJobs(data.totalJobs);
         setInterns(data.totalInterns);

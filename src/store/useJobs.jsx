@@ -17,7 +17,7 @@ export const JobContext = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `https://codecareer.onrender.com/api`,
+          `https://codecareernepal-server.onrender.com/api`,
           { params: { page: page } }
         );
         if (isMounted) {
