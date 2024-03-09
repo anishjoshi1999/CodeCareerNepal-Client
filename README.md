@@ -93,7 +93,7 @@ To contribute to this project, follow these steps:
    git push origin feature/your-feature
    ```
 
-7. Open a pull request on the original repository. Clearly describe your changes and reference any related issues.
+7. Submit a pull request to the 'dev' branch of this repository, ensuring that your changes are clearly described and any relevant issues are referenced.
 
 ## Code Style and Guidelines
 
