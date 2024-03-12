@@ -8,6 +8,7 @@ import About from "./Components/About.jsx";
 import Contact from "./Components/Contact.jsx";
 import Navbar from "./Components/Partials/Navbar.jsx";
 import Footer from "./Components/Partials/Footer.jsx";
+import CompanyInfo from "./Components/CompanyInfo.jsx";
 import { JobContext } from "./store/useJobs.jsx";
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="company" element={<Companies />} />
             <Route path="jobs/:id" element={<JobDetails />} />
           </Route>
+          <Route path="/companies" element={<CompanyInfo />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
