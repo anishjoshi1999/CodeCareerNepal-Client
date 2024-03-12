@@ -1,5 +1,5 @@
-import React from 'react';
-import { formatDistanceToNow } from 'date-fns';
+import React from "react";
+import { formatDistanceToNow } from "date-fns";
 
 /**
  * @param {{companyName: string, jobName: string, jobUrl: string, updatedAt: string}} props
@@ -17,21 +17,19 @@ function JobCard(props) {
             <div className="ms-2 c-details">
               <h6 className="mb-0">{props.companyName}</h6>
               <span>
-                {typeof props.updatedAt == 'string' ? (
-                  props.updatedAt
-                ) : (
-                  `Last updated ${formatDistanceToNow(
-                    new Date(props.updatedAt),
-                    { addSuffix: true }
-                  )}`
-                )}
+                {typeof props.updatedAt === "string"
+                  ? props.updatedAt
+                  : `Last updated ${formatDistanceToNow(
+                      new Date(props.updatedAt),
+                      { addSuffix: true }
+                    )}`}
               </span>
             </div>
           </div>
         </div>
         <div className="mt-4">
-          {props.jobName.split('des,').length >= 2 ? (
-            <p >{props.jobName.split('des,')[1]}</p>
+          {props.jobName.split("des,").length >= 2 ? (
+            <p>{props.jobName.split("des,")[1]}</p>
           ) : (
             <h3 className="display-6">{props.jobName}</h3>
           )}
