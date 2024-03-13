@@ -9,7 +9,9 @@ import Contact from "./Components/Contact.jsx";
 import Navbar from "./Components/Partials/Navbar.jsx";
 import Footer from "./Components/Partials/Footer.jsx";
 import CompanyInfo from "./Components/CompanyInfo.jsx";
+import Internship from "./Components/Internship.jsx";
 import { JobContext } from "./store/useJobs.jsx";
+import InternshipDetails from "./Components/InternshipDetails.jsx";
 function App() {
   return (
     <>
@@ -22,6 +24,8 @@ function App() {
             <Route path="company" element={<Companies />} />
             <Route path="jobs/:id" element={<JobDetails />} />
           </Route>
+          <Route path="/internship" element={<Internship />} />
+          <Route path="/internship/:id" element={<InternshipDetails />} />
           <Route path="/companies" element={<CompanyInfo />} />
           <Route path="/contribute" element={<Contribute />} />
           <Route path="/contact" element={<Contact />} />
