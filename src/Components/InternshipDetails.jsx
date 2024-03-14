@@ -49,6 +49,12 @@ function InternshipDetails() {
         <p>{error}</p>
       ) : (
         <div className="container py-5">
+           <div className="col-lg-6 mx-auto text-center mb-3">
+            <h1 className="display-4 fw-bold">Internship/Traineeship </h1>
+            <p className="lead text-muted mb-0 fw-bold">All Over Nepal</p>
+            <div style={{ margin: "20px 0" }}>
+            </div>
+          </div>
           <div className="row">
             {filteredList[0].totalJobs.map((element, index) => {
               return (
