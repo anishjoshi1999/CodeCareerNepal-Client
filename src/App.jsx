@@ -18,11 +18,11 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<JobContext />}>
-            <Route index element={<Home />} />
-            <Route path="jobs" element={<Jobs />} />
-            <Route path="company" element={<Companies />} />
-            <Route path="jobs/:id" element={<JobDetails />} />
+          <Route path="/" element={<Home />} />
+          <Route element={<JobContext />}>
+            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/company" element={<Companies />} />
+            <Route path="/jobs/:id" element={<JobDetails />} />
           </Route>
           <Route path="/internship" element={<Internship />} />
           <Route path="/internship/:id" element={<InternshipDetails />} />
