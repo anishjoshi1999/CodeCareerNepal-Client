@@ -1,6 +1,6 @@
 import React from 'react'
 import "../App.css";
-function About() {
+function Contribute() {
   return (
     <>
       <div className="bg-light">
@@ -73,7 +73,7 @@ function About() {
         <div className="container py-5">
           <div className="row mb-4">
             <div className="col-lg-5">
-              <h2 className="display-4 font-weight-light">Your Team</h2>
+              <h2 className="display-4 font-weight-light">Contribute</h2>
             </div>
           </div>
 
@@ -81,25 +81,25 @@ function About() {
             <div className="col-xl-3 col-sm-6 mb-5">
               <div className="bg-white rounded shadow-sm py-5 px-4">
                 <img
-                  src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png"
-                  alt=""
+                  src="https://cdn.thenewstack.io/media/2023/11/bbe96b7d-simple-react-ssr-vite-express.jpg"
+                  alt="FrontEnd Repository"
                   width="100"
                   className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
                 />
-                <h5 className="mb-0">Anish Joshi</h5>
-                <span className="small text-titlecase text-muted">Developer</span>
-                <ul className="social mb-0 list-inline mt-3">
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-facebook-f"></i>
-                    </a>
-                  </li>
-                  <li className="list-inline-item">
-                    <a href="#" className="social-link">
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                </ul>
+                <h5 className="mb-0"><a href="https://github.com/anishjoshi1999/CodeCareerNepal-Client" target="_blank">Front End</a></h5>
+                <span className="small text-titlecase text-muted"> Vite: React.js</span>
+              </div>
+            </div>
+            <div className="col-xl-3 col-sm-6 mb-5">
+              <div className="bg-white rounded shadow-sm py-5 px-4">
+                <img
+                  src="https://img-b.udemycdn.com/course/750x422/4383266_d1bc.jpg"
+                  alt="BackEnd Repository"
+                  width="100"
+                  className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
+                />
+                <h5 className="mb-0"><a href="https://github.com/anishjoshi1999/CodeCareerNepal-Server" target="_blank">Back End</a></h5>
+                <span className="small text-titlecase text-muted">Node.js, Express.js and MongoDB</span>
               </div>
             </div>
           </div>
@@ -111,4 +111,4 @@ function About() {
   )
 }
 
-export default About
+export default Contribute

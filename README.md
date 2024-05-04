@@ -49,11 +49,11 @@ The project structure is organized as follows:
 
 - Jobs: Lists all job listings with an option to search by company name.
 
-- JobDetails: Shows detailed information about job openings for a specific company.
+- JobDetails: Shows detailed information Contribute job openings for a specific company.
 
 - Contact: Provides a contact form and information for reaching out.
 
-- About: Describes the mission, team, and functionality of CodeCareerNepal.
+- Contribute: Describes the mission, team, and functionality of CodeCareerNepal.
 
 ### Hooks and Context
 
@@ -93,7 +93,7 @@ To contribute to this project, follow these steps:
    git push origin feature/your-feature
    ```
 
-7. Open a pull request on the original repository. Clearly describe your changes and reference any related issues.
+7. Submit a pull request to the 'dev' branch of this repository, ensuring that your changes are clearly described and any relevant issues are referenced.
 
 ## Code Style and Guidelines
 
